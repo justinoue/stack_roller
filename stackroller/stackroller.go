@@ -2,7 +2,6 @@ package stackroller
 
 import (
   "net/http"
-  "os"
   "github.com/gorilla/mux"
   "fmt"
   "time"
@@ -11,18 +10,12 @@ import (
 
 
 
-func main() {
+func init() {
   r := mux.NewRouter()
   r.HandleFunc("/", home_handler)
   r.HandleFunc("/{p}", home_handler)
 
   http.Handle("/", r)
-
-  err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
-
-  if err != nil {
-    panic(err)
-  }
 }
 
 
