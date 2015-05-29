@@ -1,4 +1,4 @@
-package main
+package stackroller
 
 import (
   "net/http"
